@@ -1,0 +1,30 @@
+#cardPool {
+  background-color: gray;
+  border: 1px solid gray;
+  margin: 0 0 10px 0;
+  min-height: 200px;
+}
+
+#cardPool:hover {
+  border: 1px solid red;
+}
+
+#sideBoard {
+  background-color: #eaeaea;
+  border: 1px solid #eaeaea;
+  min-height: 400px;
+}
+
+#sideBoard:hover {
+  border: 1px solid red;
+}
+
+#mainBoard {
+  background-color: #cacaca;
+  border: 1px solid #cacaca;
+  min-height: 400px;
+}
+
+#mainBoard:hover {
+  border: 1px solid red;
+}

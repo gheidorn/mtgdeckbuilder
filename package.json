@@ -1,0 +1,29 @@
+{
+  "name": "mtg-brewhaus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "webpack",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.15.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "request": "^2.81.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-middleware": "^1.10.1"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.4"
+  }
+}
