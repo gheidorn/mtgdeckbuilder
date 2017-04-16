@@ -1,33 +1,51 @@
 import React from 'react';
 import request from 'request';
+import _ from 'lodash';
 class CardPool extends React.Component {
-  getInitialState() {
-    return {
-      cards: []
-    }
+  constructor(props) {
+    super(props);
+    this.refs = [],
+    this.state = {
+      cards: [],
+      cardPool: [],
+      searchText: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    //console.log(this.state.cards);
+    this.setState({
+      searchText: event.target.value,
+      cardPool: _.filter(this.state.cards, function(o) {
+        return o.name.toUpperCase().includes(event.target.value.toUpperCase());
+      })
+    });
+  }
+
+  componentWillUpdate() {
+    var query = this.refs.searchInput.value; // this is the search text
+    //console.log(query);
+    //console.log('componentWillUpdate: ' + this.state.cards);
   }
 
   componentDidMount() {
     var _this = this;
     this.serverRequest = request({
-          uri: 'http://localhost:3000/static/MM3.json',
+          //uri: 'http://localhost:3000/static/MM3.json',
+          uri: 'http://localhost:8080/www/static/MM3.json',
           qs: {},
           method: 'GET'
 
       }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
-
-              console.log(body);
-              //console.log(makesAndModelsList);
-              //console.log('found ' + _makesAndModelsList.mk.length + ' makes');
-
-              // _makesAndModelsList.mk.forEach(function(mk) {
-              //     _makes.push({"name":mk.nm,"cn":mk.cn,"id":mk.id});
-              // });
-
-              //console.log(_makes);
-              // console.log("Makes have been loaded from MVIS ");
-
+            var set = JSON.parse(body);
+            console.log('found ' + set.cards.length + ' cards');
+            console.log(set.cards[0]);
+            _this.setState({
+              cards: set.cards
+            });
           } else {
               console.error("Unable to send message.");
               //console.error(response);
@@ -35,6 +53,10 @@ class CardPool extends React.Component {
               resolve(error);
           }
       });
+  }
+
+  componentWillUnmount() {
+    this.serverRequest.abort();
   }
 
   changeHandler() {
@@ -46,10 +68,17 @@ class CardPool extends React.Component {
       <div>
         <form>
           <div className="form-group">
-            <input type="text" className="form-control" />
+            <input type="text" ref="searchInput" className="form-control" onChange={this.handleChange} />
           </div>
         </form>
         <div className="cardPool">
+          {this.state.cardPool.map(function(card) {
+            return (
+              <div key={card.multiverseid} className="card">
+                <img src={'http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid=' + card.multiverseid} />
+              </div>
+            );
+          })}
         </div>
       </div>
     );

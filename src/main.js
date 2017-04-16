@@ -1,4 +1,3 @@
-console.log('Hello World!');
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Counter from './Counter';
@@ -12,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
   //   document.getElementById('mount')
   // );
 
-  console.log(document.getElementById('cardPool'));
-  console.log(document.getElementById('mainBoard'));
-  console.log(document.getElementById('sideBoard'));
+  // console.log(document.getElementById('cardPool'));
+  // console.log(document.getElementById('mainBoard'));
+  // console.log(document.getElementById('sideBoard'));
 
   ReactDOM.render(
     React.createElement(CardPool),

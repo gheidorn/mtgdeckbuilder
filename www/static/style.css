@@ -28,3 +28,14 @@
 #mainBoard:hover {
   border: 1px solid red;
 }
+
+.cardPool {
+  display: inline-block;
+}
+.card {
+  display: inline;
+}
+.card img {
+  margin: 0 0 3px 3px;
+  width: 16%;
+}

@@ -1,4 +1,4 @@
-MTG Brewhaus
+MTG Deck Builder
 ---
 
 Welcome.
