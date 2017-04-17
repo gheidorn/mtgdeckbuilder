@@ -1,41 +1,56 @@
-#cardPool {
-  background-color: gray;
-  border: 1px solid gray;
-  margin: 0 0 10px 0;
-  min-height: 200px;
-}
-
-#cardPool:hover {
-  border: 1px solid red;
-}
-
-#sideBoard {
-  background-color: #eaeaea;
-  border: 1px solid #eaeaea;
-  min-height: 400px;
-}
-
-#sideBoard:hover {
-  border: 1px solid red;
-}
-
-#mainBoard {
-  background-color: #cacaca;
-  border: 1px solid #cacaca;
-  min-height: 400px;
-}
-
-#mainBoard:hover {
-  border: 1px solid red;
-}
-
 .cardPool {
+  border: 1px solid #cacaca;
   display: inline-block;
+  min-height: 200px;
+  width: 100%;
+  background-color: #f8f8f8;
 }
+
+.cardPool:hover {
+  border: 1px solid red;
+}
+
 .card {
   display: inline;
 }
 .card img {
   margin: 0 0 3px 3px;
-  width: 16%;
+  width: 150px;
+}
+
+.proxyCard {
+  display: inline-grid;
+  margin: 0 0 3px 3px;
+  min-height: 200px;
+  width: 150px;
+  border: 1px solid;
+  background-color: cadetblue;
+}
+
+.proxyCard p {
+  font-size: xx-small;
+}
+
+.mainBoard {
+  border: 1px solid #cacaca;
+  display: inline-block;
+  min-height: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.mainBoard:hover {
+  border: 1px solid red;
+}
+
+.sideBoard {
+  border: 1px solid #cacaca;
+  display: inline-block;
+  min-height: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.sideBoard:hover {
+  border: 1px solid red;
 }
