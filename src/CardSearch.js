@@ -22,7 +22,7 @@ export default class CardSearch extends Component {
         filteredCards: _.filter(this.state.cards, function(o) {
           return o.name.toUpperCase().includes(event.target.value.toUpperCase());
         })
-      });  
+      });
     }
   }
 
@@ -37,8 +37,8 @@ export default class CardSearch extends Component {
       }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             var set = JSON.parse(body);
-            console.log('found ' + set.cards.length + ' cards');
-            console.log(set.cards[0]);
+            //console.log('found ' + set.cards.length + ' cards');
+            //console.log(set.cards[0]);
             _this.setState({
               cards: set.cards
             });

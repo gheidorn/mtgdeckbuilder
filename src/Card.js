@@ -21,8 +21,7 @@ const cardSource = {
   },
 
   beginDrag(props, monitor, component) {
-    console.log(component);
-    return { id: props.id };
+    return component.state.card;
   },
 
   endDrag(props, monitor, component) {
@@ -42,7 +41,7 @@ const cardSource = {
     const dropResult = monitor.getDropResult();
 
     // This is a good place to call some Flux action
-    //CardActions.moveCardToList(item.id, dropResult.listId);
+    //console.log('card state => ' + item.name);
   }
 };
 
@@ -59,11 +58,14 @@ function collect(connect, monitor) {
 class Card extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      card: props.card
+    }
   }
 
   render() {
 
-    const { id } = this.props;
+    const { id } = this.state.card;
 
     const { isDragging, connectDragSource } = this.props;
 
